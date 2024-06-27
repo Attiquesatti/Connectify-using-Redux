@@ -14,6 +14,7 @@ export const fetchImages = createAsyncThunk('fetchPhotos', async () => {
       data: [],
       isError: false,
     },
+    
     extraReducers: (builder) => {
       builder.addCase(fetchImages.pending, (state) => {
         state.isLoading = true;

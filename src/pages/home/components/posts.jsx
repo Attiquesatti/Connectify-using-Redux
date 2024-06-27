@@ -5,15 +5,21 @@ import { fetchImages } from "../../../redux/slice/unsplash";
 import "./customscroll.css"
 
 import {
-  AiFillHeart,
   AiFillSave,
   AiOutlineComment,
   AiOutlineShareAlt,
 } from "react-icons/ai";
-import Writepost from "./writepost";
+import { SlLike } from "react-icons/sl";
+import Comments from "./comments";
 
 const Posts = () => {
   const [post, setPost] = useState(false);
+
+  const [comments, setComments]=useState(false);
+
+  const togglecomments = () =>{
+    setComments(true);
+  }
 
   const togglepost = () => {
     setPost(true);
@@ -104,23 +110,24 @@ const Posts = () => {
               />
             </div>
             <div className="h-12 border-b flex items-center justify-around">
-              <div className="flex items-center gap-2">
-                <AiFillHeart className="h-6 w-6 text-red-500" />
-                <button className="text-sm">{item.likes} Likes</button>
-              </div>
-              <div className="flex items-center gap-2">
+              <button className="flex items-center gap-2">
+                <SlLike className="h-5 w-5 text-gray-500" />
+                <p className="text-sm">{item.likes} Likes</p>
+              </button>
+              <button className="flex items-center gap-2" onClick={togglecomments}>
                 <AiOutlineComment className="h-5 w-5 text-gray-500" />
-                <div className="text-sm">10 Comments</div>
-              </div>
-              <div className="flex items-center gap-2">
+                <p className="text-sm">10 Comments</p>
+              </button>
+              <button className="flex items-center gap-2">
                 <AiOutlineShareAlt className="h-6 w-6 text-gray-500" />
-                <div className="text-sm">Share</div>
-              </div>
-              <div className="flex items-center gap-2">
+                <p className="text-sm">Share</p>
+              </button>
+              <button className="flex items-center gap-2">
                 <AiFillSave className="h-6 w-6 text-gray-500" />
-                <div className="text-sm">Saved</div>
-              </div>
+                <p className="text-sm">Saved</p>
+              </button>
             </div>
+            {comments && <Comments setComments={setComments}/>}
           </div>
         ))}
       </div>

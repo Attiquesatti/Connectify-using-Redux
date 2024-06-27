@@ -4,6 +4,7 @@ import photosReducer from "./slice/photos"
 import commentReducer from "./slice/comments"
 import dataReducer from "./slice/dataslice"
 import imagesReducer from "./slice/unsplash"
+import addcommentsReducer from "./slice/addcomments";
 
 const Store = configureStore({
     reducer : {
@@ -11,7 +12,8 @@ const Store = configureStore({
         photos : photosReducer,
         comments : commentReducer,
         data : dataReducer,
-        images : imagesReducer
+        images : imagesReducer,
+        addcomments : addcommentsReducer,
     }
 })
 

@@ -1,10 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import "./placeholder.css"
-import { AiOutlineSearch } from "react-icons/ai";
 import { GoFileMedia } from "react-icons/go";
 import { SlCalender } from "react-icons/sl";
-import { PiArticleLight } from "react-icons/pi";
 import { TbArticle } from "react-icons/tb";
 
 const Writepost = () => {
